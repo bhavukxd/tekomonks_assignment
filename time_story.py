@@ -18,7 +18,7 @@ def fetch_latest_stories():
     added_titles = set()
 
     for href, title in stories:
-        # Clean title (remove HTML tags, newlines, etc.)
+        
         clean_title = re.sub(r"<.*?>", "", title).strip()
         if clean_title and clean_title not in added_titles:
             results.append({
@@ -48,3 +48,4 @@ if __name__ == "__main__":
     print(f"Server running on http://{HOST}:{PORT}/getTimeStories")
     server = HTTPServer((HOST, PORT), TimeStoriesHandler)
     server.serve_forever()
+
